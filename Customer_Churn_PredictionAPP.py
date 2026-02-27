@@ -9,7 +9,7 @@ churn_df=pn.read_excel("churn_dataset.xlsx")
 st.subheader("data set preview")
 st.write(churn_df)
 
-model=joblib.load("model_Gaussian,pkl")
+model=joblib.load("Model.pkl")
 
 
 age = st.number_input("Age", min_value=min(churn_df["Age"]), max_value=max(churn_df["Age"]), value=30)
