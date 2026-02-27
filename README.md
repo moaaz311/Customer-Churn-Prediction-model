@@ -49,15 +49,12 @@ This change resulted in:
 
 ---
 
-## 📂 Project Structure
-
+📂 Project Structure
+Customer_Churn_Prediction/
 ├── Customer_Churn_PredictionAPP.py
 ├── churn_dataset.xlsx
 ├── model_Logistic.pkl
 └── README.md
-
----
-
 
 ## ▶️ How to Run the App
 
