@@ -111,4 +111,9 @@ http://localhost:8501
 * Deploy the app online (Streamlit Cloud)
 * Add visualization charts
 
+## Project Screenshots
+![Control Flow](pM1.png)
+![Control Flow](pM2.png)
+![Control Flow](pF1.png)
+![Control Flow](pF2.png)
 ⭐ *This project is part of the ITI Data Mining training tasks.*
