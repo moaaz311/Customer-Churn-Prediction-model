@@ -7,13 +7,34 @@ The app allows users to enter customer information and predict whether the custo
 
 ---
 
+## ⚠️ Challenge Faced
+
+During model development, the initial approach used **Gaussian Naive Bayes**. However, after evaluation, the model showed weak performance in detecting churn customers, especially in terms of recall and ROC-AUC.
+
+The main challenges were:
+
+* Small dataset size (100 records)
+* Class imbalance between churn and non-churn customers
+* Limited number of input features
+* GaussianNB assumptions not fitting the data well
+
+To address this challenge and improve the model’s ability to detect customers at risk of leaving, the model was replaced with **Logistic Regression** using `class_weight='balanced'`.
+
+This change resulted in:
+
+* Better recall for churn customers
+* More meaningful business predictions
+* Improved overall model reliability
+
+---
+
 ## 🚀 Features
 
 * Preview the churn dataset
 * Input customer details (Age, Tenure, Sex)
-* Predict customer churn using a trained model
+* Predict customer churn using a trained Logistic Regression model
 * Display churn and stay probabilities
-* Simple and interactive Streamlit interface
+* Interactive Streamlit interface
 
 ---
 
@@ -24,51 +45,26 @@ The app allows users to enter customer information and predict whether the custo
 * Pandas
 * NumPy
 * Joblib
-* Scikit-learn (for the trained model)
+* Scikit-learn
 
 ---
 
-## 📂 Project Structure
-
-```
-task/
+📂 Project Structure
+Customer_Churn_Prediction/
 ├── Customer_Churn_PredictionAPP.py
 ├── churn_dataset.xlsx
-├── model_Gaussian.pkl
+├── model_Logistic.pkl
 └── README.md
-```
-
----
-
-## ⚙️ Installation
-
-### 1️⃣ Clone or download the project
-
-Navigate to the project folder:
-
-```
-cd D:\ITI\DataMinning\day2\task
-```
-
-### 2️⃣ Install required packages
-
-```
-python -m pip install streamlit pandas numpy joblib scikit-learn openpyxl
-```
-
----
 
 ## ▶️ How to Run the App
 
-Run the following command:
-
-```
+```id="1ztm5g"
 python -m streamlit run Customer_Churn_PredictionAPP.py
 ```
 
 Then open your browser at:
 
-```
+```id="vbdcrr"
 http://localhost:8501
 ```
 
@@ -77,7 +73,7 @@ http://localhost:8501
 ## 🧠 How It Works
 
 1. The dataset is loaded and displayed.
-2. The trained Gaussian model is loaded using Joblib.
+2. The trained Logistic Regression model is loaded using Joblib.
 3. User inputs customer information.
 4. The model predicts:
 
@@ -95,21 +91,22 @@ http://localhost:8501
 
 ---
 
-## ✅ Output
+## 📈 Model Performance Notes
 
-* Probability of staying
-* Probability of churn
-* Final prediction message
+* Logistic Regression improved **recall for churn customers** compared to the initial approach.
+* ROC-AUC indicates performance slightly above random baseline.
+* Performance is constrained by the **small dataset size** and **limited feature set**.
 
 ---
 
 ## 🔮 Future Improvements
 
-* Add more customer features
-* Improve UI design
-* Add model performance metrics
+* Add more customer behavioral features
+* Increase dataset size
+* Perform hyperparameter tuning
 * Deploy the app online (Streamlit Cloud)
-* Add visualization charts
+* Add advanced visualizations
+
 
 ## Project Screenshots
 ![Control Flow](pM1.png)
